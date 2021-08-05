@@ -4,20 +4,19 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+        <link href="design/style.css" rel="stylesheet">
         <title>Chat Window</title>
     </head>
     <body>
         <section>
-            <h1>Chat Pop-up</h1>
-            <p>Click on the chat button to start chatting</p>
-            <button class="chat-btn">
+            <button class="chat-button">
                 <i class="material-icons">comment</i>
             </button>
             <div class="chat-popup">
                 <div class="badge">1</div>
                 <div class="chat-area">
-                    <div class="income-msg">
-                        <span class="msg">Hi, how can I help you?</span>
+                    <div class="incoming-msg">
+                        <span class="ai-msg">Hi, how can I help you?</span>
                     </div>
                 </div>
                 <div class="input-area">
@@ -27,6 +26,6 @@
             </div>
         </section>
 
-        <script src="chatbox.js"></script>
+        <script src="resource/chatbox.js"></script>
     </body>
 </html>
