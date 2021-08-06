@@ -49,6 +49,7 @@ section{
     justify-content: space-between;
     padding: 0.75rem;
     box-shadow: 0 5px 5px #818181;
+    border-radius: 5px;
 }
 
 .show{
@@ -62,31 +63,20 @@ section{
 }
 
 .incoming-msg{
+    padding-top: 0.50rem;
+    padding-bottom: 0.50rem;
     display: flex;
     align-items: center;
 }
 
-.incoming-msg .ai-msg{
+.ai-msg{
     background-color: #1e90f1;
     color: #ffffff;
     padding: 0.5rem;
     border-radius: 25px;
-    margin-left: 1rem;
+    margin-left: 0.25rem;
     box-shadow: 0 5px 5px #818181;
-}
-
-.badge{
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    background-color:#ff0000;
-    color: #ffffff;
-    border-radius: 50%;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    top: -10px;
-    right: -10px;
+    text-align: left;
 }
 
 .input-area{
@@ -104,6 +94,8 @@ input[type="text"]{
 }
 
 .outgoing-msg{
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -112,12 +104,13 @@ input[type="text"]{
 .user-msg{
     display: flex;
     justify-content: flex-end;
-    background-color:#cecece;
+    background-color:#acacac;
     color: #ffffff;
     padding: 0.5rem;
     border-radius: 25px;
     margin-left: 1rem;
     box-shadow: 0 5px 5px #818181;
+    text-align: right;
 }
 
 .submit{

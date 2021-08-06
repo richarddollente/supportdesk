@@ -28,6 +28,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function messageHandler(){
     let userInput = inputField.value;
+    messageOutput(userInput);
+    inputField.value = '';
+    
+}
+
+function messageOutput(userInput) {
     let optionalReply;
 
     let inputText = userInput.toLowerCase().replace(/[^\w\s]/gi, "").replace(/[\d]/gi, "").trim();
@@ -48,8 +54,30 @@ function messageHandler(){
     else{
         optionalReply = alternative[Math.floor(Math.random() * alternative.length)];
     }
-    
 
+    addChat(inputText, optionalReply);
+}
+
+function textCompare(promptsArray, repliesArray, string){
+    let aiReply;
+    let replyFound = false;
+    for(let a = 0; a < promptsArray.length; a++){
+        for(let b = 0; b < promptsArray[a].length; b++){
+            if(promptsArray[a][b] === string){
+                let aiReplies = repliesArray[a];
+                aiReply = aiReplies[Math.floor(Math.random() * aiReplies.length)];
+                replyFound = true;
+                break;
+            }
+        }
+        if(replyFound){
+            break;
+        }
+    } 
+    return aiReply;
+}
+
+function addChat(userInput, optionalReply){
     let userDiv = document.createElement("div");
     userDiv.id = "outgoing-msg";
     userDiv.className = "outgoing-msg";
@@ -70,27 +98,6 @@ function messageHandler(){
         aiText.innerText = `${optionalReply}`;
     }, 2000
     )
-    inputField.value = '';
-    
-}
-
-function textCompare(promptsArray, repliesArray, string){
-    let aiReply;
-    let replyFound = false;
-    for(let a = 0; a < promptsArray.length; a++){
-        for(let b = 0; b < promptsArray[a].length; b++){
-            if(promptsArray[a][b] === string){
-                let aiReplies = repliesArray[a];
-                aiReply = aiReplies[Math.floor(Math.random() * aiReplies.length)];
-                replyFound = true;
-                break;
-            }
-        }
-        if(replyFound){
-            break;
-        }
-    } 
-    return aiReply;
 }
 
 const prompts = [

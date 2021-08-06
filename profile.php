@@ -13,14 +13,13 @@
                 <i class="material-icons">comment</i>
             </button>
             <div class="chat-popup">
-                <div class="badge">1</div>
-                <div class="chat-area">
+                <div class="chat-area" id="chat-area">
                     <div class="incoming-msg">
-                        <span class="ai-msg">Hi, how can I help you?</span>
+                        <span class="ai-msg">Hi welcome to SupportDesk, how can I help you?</span>
                     </div>
                 </div>
                 <div class="input-area">
-                    <input type="text">
+                    <input id="user-input" type="text" placeholder="Say something..." autofocus="true"/>
                     <button class="submit"><i class="material-icons">send</i></button>
                 </div>
             </div>
