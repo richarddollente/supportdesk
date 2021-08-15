@@ -1,11 +1,11 @@
 <?php
-        include 'include/header.php';
+        include 'resources/header.php';
 ?>
     <body>
 <?php
     include 'resources/chatbox.php';
 ?>
 <?php
-    include 'include/footer.php';
+    include 'resources/footer.php';
 ?>
 

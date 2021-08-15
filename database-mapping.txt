@@ -1,0 +1,60 @@
+User Information
+userId
+userEmail
+userPassword
+userName
+userFirstName
+userLastName
+userSchool
+userRole
+userAddress
+userPhone
+userType
+
+Ticket
+ticketId
+ticketScope
+ticketIssue
+ticketAttachment
+ticketSeverity
+ticketTime
+ticketStatus
+ticketAssign
+ticketDate
+
+Comments
+commentId
+userName
+userType
+ticketId
+commentBody
+commentDate
+
+Knowledgebase
+kbId
+userName
+
+User Pages:
+View Ticket (includes link to create new ticket): view-ticket.php, submit-ticket.php, edit-ticket.php
+Profile: profile.php, edit-profile.php
+Logout: logout.php
+
+Admin Pages:
+Staticstics: admin-view-stat.php
+View Tickets: admin-view-ticket.php
+Profile: admin-profile.php, edit-admin-profile.php, add-user.php
+Logout.php
+
+Includes:
+configuration.php
+header.php
+footer.php
+
+Logistics:
+
+
+
+
+
+
+
