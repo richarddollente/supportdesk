@@ -28,12 +28,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function messageHandler(){
     let userInput = inputField.value;
-    messageOutput(userInput);
-    inputField.value = '';
-    
+    let userOutMessage = inputField.value;
+    messageOutput(userInput, userOutMessage);
+    inputField.value = '';    
 }
 
-function messageOutput(userInput) {
+function messageOutput(userInput, userOutMessage) {
     let optionalReply;
 
     let inputText = userInput.toLowerCase().replace(/[^\w\s]/gi, "").replace(/[\d]/gi, "").trim();
@@ -55,7 +55,7 @@ function messageOutput(userInput) {
         optionalReply = alternative[Math.floor(Math.random() * alternative.length)];
     }
 
-    addChat(inputText, optionalReply);
+    addChat(userOutMessage, optionalReply);
 }
 
 function textCompare(promptsArray, repliesArray, string){
@@ -77,11 +77,11 @@ function textCompare(promptsArray, repliesArray, string){
     return aiReply;
 }
 
-function addChat(userInput, optionalReply){
+function addChat(userOutMessage, optionalReply){
     let userDiv = document.createElement("div");
     userDiv.id = "outgoing-msg";
     userDiv.className = "outgoing-msg";
-    userDiv.innerHTML = `<span class="user-msg">${userInput}</span>`;
+    userDiv.innerHTML = `<span class="user-msg">${userOutMessage}</span>`;
     chatArea.appendChild(userDiv);
 
     let aiDiv = document.createElement("div");
@@ -101,73 +101,34 @@ function addChat(userInput, optionalReply){
 }
 
 const prompts = [
-    ["hi", "hey", "hello", "good morning", "good afternoon"],
-    ["how are you", "how is life", "how are things"],
-    ["what are you doing", "what is going on", "what is up"],
-    ["how old are you"],
-    ["who are you", "are you human", "are you bot", "are you human or bot"],
-    ["who created you", "who made you"],
-    [
-      "your name please",
-      "your name",
-      "may i know your name",
-      "what is your name",
-      "what call yourself"
-    ],
-    ["i love you"],
-    ["happy", "good", "fun", "wonderful", "fantastic", "cool"],
-    ["bad", "bored", "tired"],
-    ["help me", "tell me story", "tell me joke"],
-    ["ah", "yes", "ok", "okay", "nice"],
-    ["bye", "good bye", "goodbye", "see you later"],
-    ["what should i eat today"],
-    ["bro"],
-    ["what", "why", "how", "where", "when"],
-    ["no","not sure","maybe","no thanks"],
-    [""],
-    ["haha","ha","lol","hehe","funny","joke"]
-  ]
+    ["network"],
+    ["lan network"],
+    ["mobile"],
+    ["application"],
+    ["hardware"],
+    ["still not working", "not working"],
+    ["its working", "working", "all good"]
+]
   
   // Possible responses, in corresponding order
   
   const replies = [
-    ["Hello!", "Hi!", "Hey!", "Hi there!","Howdy"],
+    ["Are you using LAN Network or Mobile?"],
     [
-      "Fine... how are you?",
-      "Pretty well, how are you?",
-      "Fantastic, how are you?"
+      "For LAN network, try restarting the router by unplugging it from the power source for 10 seconds. If the issue isn't resolve, try submitting a ticket for further assistance."
     ],
     [
-      "Nothing much",
-      "About to go to sleep",
-      "Can you guess?",
-      "I don't know actually"
+      "For mobile, try turning Airplane Mode ON and OFF, or restart your phone. If the issue isn't resolve, try submitting a ticket for further assistance."
     ],
-    ["I am infinite"],
-    ["I am just a bot", "I am a bot. What are you?"],
-    ["The one true God, JavaScript"],
-    ["I am nameless", "I don't have a name"],
-    ["I love you too", "Me too"],
-    ["Have you ever felt bad?", "Glad to hear it"],
-    ["Why?", "Why? You shouldn't!", "Try watching TV"],
-    ["What about?", "Once upon a time..."],
-    ["Tell me a story", "Tell me a joke", "Tell me about yourself"],
-    ["Bye", "Goodbye", "See you later"],
-    ["Sushi", "Pizza"],
-    ["Bro!"],
-    ["Great question"],
-    ["That's ok","I understand","What do you want to talk about?"],
-    ["Please say something :("],
-    ["Haha!","Good one!"]
-  ]
+    ["If you are having problem with an application, try restarting the device, or uninstalling and reinstalling the application could help. If the issue isn't resolve, try submitting a ticket for further assistance."],
+    ["On hardware issues, restart the device. If the issue isn't resolve, try submitting a ticket for further assistance"],
+    ["We apologize for the inconvenience. If the issue isn't resolve, try submitting a ticket for further assistance"],
+    ["I am happy that I could help.", "That is good to hear!", "I am glad that I could help!", "That is wonderful news!"]
+]
   
   // Random for any other user input
   
   const alternative = [
-    "Same",
-    "Go on...",
-    "Bro...",
-    "Try again",
-    "I'm listening...",
-    "I don't understand :/"
-  ]
+    "I don't understand. Try typing 'network', 'application', or 'hardware' for help!",
+    "Sorry, let's try again. Try typing 'network', 'application', or 'hardware' for help!"
+]

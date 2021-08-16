@@ -5,7 +5,7 @@
             <div class="chat-popup">
                 <div class="chat-area" id="chat-area">
                     <div class="incoming-msg">
-                        <span class="ai-msg">Hi welcome to SupportDesk, how can I help you?</span>
+                        <span class="ai-msg">Hi welcome to SupportDesk!<br>Type 'network', 'application', or 'hardware' for help!</span>
                     </div>
                 </div>
                 <div class="input-area">
