@@ -1,8 +1,8 @@
 const chatPopup = document.querySelector('.chat-popup');
 const chatButton = document.querySelector('.chat-button');
-const submitButton = document.querySelector('.submit');
+const submitButton = document.querySelector('.chat-submit');
 const chatArea = document.querySelector('.chat-area');
-const inputField = document.querySelector('input');
+const inputField = document.querySelector('.chat-input');
 
 //Chat box toggler
 

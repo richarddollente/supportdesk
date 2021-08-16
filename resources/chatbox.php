@@ -9,8 +9,8 @@
                     </div>
                 </div>
                 <div class="input-area">
-                    <input id="user-input" type="text" placeholder="Say something..." autofocus="true"/>
-                    <button class="submit"><i class="material-icons">send</i></button>
+                    <input class="chat-input" id="user-input" type="text" placeholder="Say something..." autofocus="true"/>
+                    <button class="chat-submit"><i class="material-icons">send</i></button>
                 </div>
             </div>
         </section>
