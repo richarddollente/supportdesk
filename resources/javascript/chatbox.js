@@ -107,7 +107,8 @@ const prompts = [
     ["application"],
     ["hardware"],
     ["still not working", "not working"],
-    ["its working", "working", "all good"]
+    ["its working", "working", "all good"],
+    ["hello","hi", "good morning", "good afternoon", "good evening"]
 ]
   
   // Possible responses, in corresponding order
@@ -123,7 +124,8 @@ const prompts = [
     ["If you are having problem with an application, try restarting the device, or uninstalling and reinstalling the application could help. If the issue isn't resolve, try submitting a ticket for further assistance."],
     ["On hardware issues, restart the device. If the issue isn't resolve, try submitting a ticket for further assistance"],
     ["We apologize for the inconvenience. If the issue isn't resolve, try submitting a ticket for further assistance"],
-    ["I am happy that I could help.", "That is good to hear!", "I am glad that I could help!", "That is wonderful news!"]
+    ["I am happy that I could help.", "That is good to hear!", "I am glad that I could help!", "That is wonderful news!"],
+    ["Hi, please type 'network', 'application', or 'hardware' for help!"]
 ]
   
   // Random for any other user input

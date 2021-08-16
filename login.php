@@ -1,5 +1,7 @@
 <?php
-        include 'resources/header.php';
+        include("resources/header.php");
+        require_once("resources/navigation.php");
+        
 ?>
 <body>
     <div class="login-container">
@@ -21,8 +23,8 @@
         </div>
     </div>
 <?php
-    include 'resources/chatbox.php';
+    include("resources/chatbox.php");
 ?>
 <?php
-    include 'resources/footer.php';
+    include("resources/footer.php");
 ?>
