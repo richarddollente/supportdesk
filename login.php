@@ -1,5 +1,5 @@
 <?php
-    include("resources/header.php");
+
     require_once("resources/navigation.php");
     require_once("resources/classes/UserAccounts.php");
     require_once("resources/classes/Constants.php");
@@ -10,22 +10,25 @@
     if(isset($_POST["loginSubmit"])) {
 
         $userEmail = FormSanitizer::sanitizeFormUserEmail($_POST["userEmail"]);
-        $userPassword = FormSanitizer::sanitizerFormUserPassword($_POST["userPassword"]);
+        $userPassword = FormSanitizer::sanitizeFormUserPassword($_POST["userPassword"]);
 
         $isSuccessful = $useraccount->login($userEmail, $userPassword);
 
         if($isSuccessful){
             $_SESSION["userLoggedIn"] = $userEmail;
-            header("profile: login.php");
+            header("location: profile.php");
         }
     }
 
     function getInputValue($user){
         if(isset($_POST[$user])){
-            echo $_POST[$name];
+            echo $_POST[$user];
         }
     }
 
+?>
+<?php
+    include("resources/header.php");
 ?>
 <body>
     <div class="login-container">
@@ -38,7 +41,7 @@
             <div class="loginForm">
                 <form action="login.php" method="POST">
                     <?php echo $useraccount->getError(Constants::$loginFailed); ?>
-                    <input type="text" name="userEmail" placeholder="Email" value="" required>
+                    <input type="email" name="userEmail" placeholder="Email" value="" required>
                     <input type="password" name="userPassword" placeholder="Password" required>
                     <input type="submit" name="loginSubmit" value="LOGIN">
                 </form>
