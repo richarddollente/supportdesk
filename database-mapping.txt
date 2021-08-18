@@ -1,34 +1,35 @@
-User Information
+users
 userId
 userEmail
 userPassword
-userName
 userFirstName
 userLastName
+userType
 userSchool
 userRole
 userAddress
 userPhone
-userType
 
-Ticket
+tickets
 ticketId
-ticketScope
 ticketIssue
+userEmail
+userType
+ticketScope
 ticketAttachment
+ticketMessage
 ticketSeverity
-ticketTime
 ticketStatus
 ticketAssign
-ticketDate
+ticketTimestamp
 
-Comments
+comments
 commentId
-userName
+userEmail
 userType
 ticketId
 commentBody
-commentDate
+commentTimestamp
 
 Knowledgebase
 kbId
