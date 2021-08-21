@@ -1,18 +1,18 @@
 <?php
 
     require_once("resources/navigation.php");
-    require_once("resources/classes/UserAccounts.php");
+    require_once("resources/classes/UserLogin.php");
     require_once("resources/classes/Constants.php");
     require_once("resources/classes/FormSanitizer.php");
 
-    $useraccount = new UserAccounts($connection);
+    $userlogin = new UserLogin($connection);
 
     if(isset($_POST["loginSubmit"])) {
 
         $userEmail = FormSanitizer::sanitizeFormUserEmail($_POST["userEmail"]);
         $userPassword = FormSanitizer::sanitizeFormUserPassword($_POST["userPassword"]);
 
-        $isSuccessful = $useraccount->login($userEmail, $userPassword);
+        $isSuccessful = $userlogin->login($userEmail, $userPassword);
 
         if($isSuccessful){
             $_SESSION["userLoggedIn"] = $userEmail;
@@ -27,9 +27,18 @@
     }
 
 ?>
-<?php
-    include("resources/header.php");
-?>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+        <link href="design/style.css" rel="stylesheet">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <title>Login | Supportdesk</title>
+    </head>
 <body>
     <div class="login-container">
         <div class="column">
@@ -40,7 +49,7 @@
             </div>
             <div class="loginForm">
                 <form action="login.php" method="POST">
-                    <?php echo $useraccount->getError(Constants::$loginFailed); ?>
+                    <?php echo $userlogin->getError(Constants::$loginFailed); ?>
                     <input type="email" name="userEmail" placeholder="Email" value="" required>
                     <input type="password" name="userPassword" placeholder="Password" required>
                     <input type="submit" name="loginSubmit" value="LOGIN">

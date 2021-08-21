@@ -1,5 +1,5 @@
 <?php
-class UserAccounts{
+class UserLogin{
 
     private $connection;
     private $errorArray = array();
@@ -8,11 +8,11 @@ class UserAccounts{
         $this->connection = $connection;
     }
 
-    public function login($userem, $userpw){
+    public function login($useremail, $userpw){
         $userpw = hash("sha512", $userpw);
 
-        $query = $this->connection->prepare("SELECT * FROM users where userEmail=:userem and userPassword=:userpw");
-        $query->bindParam(":userem", $userem);
+        $query = $this->connection->prepare("SELECT * FROM users where userEmail=:useremail and userPassword=:userpw");
+        $query->bindParam(":useremail", $useremail);
         $query->bindParam(":userpw", $userpw);
 
         $query->execute();
