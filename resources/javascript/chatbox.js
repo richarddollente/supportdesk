@@ -38,7 +38,7 @@ function messageOutput(userInput, userOutMessage) {
 
     let inputText = userInput.toLowerCase().replace(/[^\w\s]/gi, "").replace(/[\d]/gi, "").trim();
     inputText = inputText
-        .replace(/ a /g, " ")   // 'tell me a story' -> 'tell me story'
+        .replace(/ a /g, " ")
         .replace(/i feel /g, "")
         .replace(/whats/g, "what is")
         .replace(/please /g, "")
