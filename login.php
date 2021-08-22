@@ -11,12 +11,14 @@
 
         $userEmail = FormSanitizer::sanitizeFormUserEmail($_POST["userEmail"]);
         $userPassword = FormSanitizer::sanitizeFormUserPassword($_POST["userPassword"]);
+        $userType = FormSanitizer::sanitizeFormUserType($_POST["userType"]);
 
-        $isSuccessful = $userlogin->login($userEmail, $userPassword);
+        $isSuccessful = $userlogin->login($userEmail, $userPassword, $userType);
 
         if($isSuccessful){
             $_SESSION["userLoggedIn"] = $userEmail;
-            header("location: profile.php");
+            $_SESSION["userType"] = $userType;
+            header("location: profile.php?userEmail=" . $userEmail);
         }
     }
 
@@ -52,6 +54,10 @@
                     <?php echo $userlogin->getError(Constants::$loginFailed); ?>
                     <input type="email" name="userEmail" placeholder="Email" value="" required>
                     <input type="password" name="userPassword" placeholder="Password" required>
+                    <select class=usertype name="userType" placeholder="Role" required >
+                        <option value="User">User</option>
+                        <option value="Administrator">Administrator</option>
+                </select>
                     <input type="submit" name="loginSubmit" value="LOGIN">
                 </form>
             </div>
@@ -62,7 +68,5 @@
     </div>
 <?php
     include("resources/chatbox.php");
-?>
-<?php
     include("resources/footer.php");
 ?>

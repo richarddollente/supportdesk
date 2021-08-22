@@ -5,15 +5,19 @@ class UserLogin{
     private $errorArray = array();
 
     public function __construct($connection){
+
         $this->connection = $connection;
+
     }
 
-    public function login($useremail, $userpw){
-        $userpw = hash("sha512", $userpw);
+    public function login($useremail, $userpw, $usertype){
 
-        $query = $this->connection->prepare("SELECT * FROM users where userEmail=:useremail and userPassword=:userpw");
+        $userpw = hash("sha512", $userpw);
+        
+        $query = $this->connection->prepare("SELECT * FROM users where userEmail=:useremail and userPassword=:userpw and userType=:usertype");
         $query->bindParam(":useremail", $useremail);
         $query->bindParam(":userpw", $userpw);
+        $query->bindParam(":usertype", $usertype);
 
         $query->execute();
 
@@ -24,12 +28,15 @@ class UserLogin{
             array_push($this->errorArray, Constants::$loginFailed);
             return false;
         }
+
     }
 
     public function getError($error) {
+
         if(in_array($error, $this->errorArray)) {
             return "<span class='errorMessage'>$error</span>";
         }
+
     }
 }
 ?>

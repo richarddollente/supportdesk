@@ -65,7 +65,8 @@ a:hover {
 
 .login-container .column form input[type="text"],
 .login-container .column form input[type="email"],
-.login-container .column form input[type="password"] {
+.login-container .column form input[type="password"],
+.login-container .column form select {
     font-size: 14px;
     margin: 10px 0;
     border: none;
