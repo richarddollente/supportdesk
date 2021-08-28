@@ -1,3 +1,5 @@
-        <script src="resources/javascript/chatbox.js"></script>
+                                </div>
+                        </div>
+                </div>
         </body>
 </html>

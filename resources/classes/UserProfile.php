@@ -1,12 +1,12 @@
 <?php
 
-    require_once("UserData.php");
+    require_once("resources/classes/UserData.php");
 
 class UserProfile{
 
     private $connection, $userLoggedInObject, $userEmailProfile;
 
-    public function __construct($connection, $userLoggedInObj, $userEmailProfile){
+    public function __construct($connection, $userLoggedInObject, $userEmailProfile){
 
         $this->connection = $connection;
         $this->userLoggedInObject = $userLoggedInObject;
@@ -15,7 +15,7 @@ class UserProfile{
     }
 
     public function create(){
-        $userEmailProfile = $this->profileData->getUserEmailProfile();
+        $userEmailProfile = $this->userData->getUserDataEmail();
 
         if(!$this->userData->userExists()){
             return "User does not exist";
@@ -35,10 +35,76 @@ class UserProfile{
 
     public function createHeaderSection(){
 
-        $userFullName = $this->UserData->getUserDataFullName();
+        $userFullName = $this->userData->getUserDataFullName();
+        
+        $button = $this->createHeaderButton();
+
+        return "<div class='userProfileHeader>
+                    <div class='userDataContainer'>
+                        <div class='userData'>
+                            <span class='userTitle'>$userFullName</span>
+                        </div>
+                    </div>
+                
+                    <div class='buttonContainer'>
+                        <div class='buttonItem'>
+                            $button
+                        </div>
+                    </div>
+                </div>";
 
     }
 
+    public function createTabsSection(){
 
+        return "<ul class='nav nav-tabs' role='tablist'>
+                    <li class='nav-item'>
+                        <a class='nav-link' id='about-tab' data-toggle='tab' href='#about' role='tab' aria-controls='about' aria-selected='false'>ABOUT</a>
+                    </li>
+                </ul>";
+
+    }
+
+    public function createContentSection(){
+
+        $aboutSection = $this->createAboutSection();
+
+        return "<div class='tab-content aboutUser'>
+                    <div class='tab-pane fade show active' id='about' role='tabpanel' aria-labelledby='about-tab'>
+                        $aboutSection
+                    </div>
+                <div>";
+
+    }
+
+    private function createHeaderButton(){
+
+        if($this->userLoggedInObject->getUserEmail() ==$this->userData->getUserDataEmail()){
+
+            return "";
+
+        }
+
+    }
+
+    private function createAboutSection(){
+
+        $html = "<div class='section'>
+                    <div class='title'>
+                        <span>Details</span>
+                    </div>
+                    <div class='values'>";
+        
+        $details = $this->userData->getAllUserData();
+        foreach($details as $key=> $value){
+            $html .= "<span>$key: $value</span>";
+        }
+
+        $html .= "</div></div>";
+
+        return $html;
+
+    }
 
 }
+?>

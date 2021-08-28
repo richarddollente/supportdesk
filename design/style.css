@@ -54,7 +54,7 @@ a:hover {
     font-size: 14px;
 }
 
-.login-container .column .loginForm {
+.login-container .column .login-form {
     padding-top: 24px;
 }
 
@@ -85,13 +85,13 @@ a:hover {
     margin-bottom: 20px;
 }
 
-.registerMessage, .forgotPWMessage {
+.register-message, .forgotPW-message {
     font-size: 14px;
     font-weight: 400;
     color: #212529;
 }
 
-.errorMessage {
+.error-message {
     color: #f00;
     font-size: 14px;
     font-weight: 400;

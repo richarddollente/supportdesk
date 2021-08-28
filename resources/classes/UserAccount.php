@@ -5,9 +5,9 @@ class UserAccount{
 
     public function __construct($connection, $userEmail){
 
-        $this->connection = $connection
-        $this = $this->connection->prepare("SELECT * FROM users where userEmail=:userem");
-        $query->bindParam(":userem", $userEmail);
+        $this->connection = $connection;
+        $query = $this->connection->prepare("SELECT * FROM users where userEmail=:useremail");
+        $query->bindParam(":useremail", $userEmail);
         $query->execute();
 
         $this->queryData = $query->fetch(PDO::FETCH_ASSOC);
@@ -22,33 +22,55 @@ class UserAccount{
 
     public function getUserEmail(){
 
-        return $this->sqldata["userEmail"];
+        return $this->queryData["userEmail"];
 
     }
 
     public function getUserFirstname(){
 
-        return $this->sqldata["userFirstname"];
+        return $this->queryData["userFirstname"];
 
     }
 
     public function getUserLastname(){
 
-        return $this->sqldata["userLastname"];
+        return $this->queryData["userLastname"];
 
     }
 
     public function getUserFullname(){
 
-        return $this->sqldata["userFirstname"] . " " . $this->sqldata["userLastname"];
+        return $this->queryData["userFirstname"] . " " . $this->queryData["userLastname"];
 
     }
 
     public function getUserType(){
 
-        return $this->sqldata["userType"];
+        return $this->queryData["userType"];
+
+    }
+
+    public function getUserSchool(){
+
+        return $this->queryData["userSchool"];
+        
+    }
+
+    public function getUserPhone(){
+
+        return $this->queryData["userPhone"];
+
+    }
+
+    public function getUserAddress(){
+
+        return $this->queryData["userAddress"];
+
     }
 
 
 
+
+
 }
+?>

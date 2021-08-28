@@ -34,7 +34,7 @@ class UserLogin{
     public function getError($error) {
 
         if(in_array($error, $this->errorArray)) {
-            return "<span class='errorMessage'>$error</span>";
+            return "<span class='error-message'>$error</span>";
         }
 
     }

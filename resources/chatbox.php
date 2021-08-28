@@ -14,3 +14,4 @@
                 </div>
             </div>
         </section>
+    <script src="resources/javascript/chatbox.js"></script>

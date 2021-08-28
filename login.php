@@ -45,11 +45,11 @@
     <div class="login-container">
         <div class="column">
             <div class="header">
-                <img src="" alt="Site Logo">
+                <img src="" title="logo" alt="Site Logo">
                 <h3>Login</h3>
                 <span>to continue to Support Portal</span>
             </div>
-            <div class="loginForm">
+            <div class="login-form">
                 <form action="login.php" method="POST">
                     <?php echo $userlogin->getError(Constants::$loginFailed); ?>
                     <input type="email" name="userEmail" placeholder="Email" value="" required>
@@ -61,12 +61,13 @@
                     <input type="submit" name="loginSubmit" value="LOGIN">
                 </form>
             </div>
-        <a class="registerMessage" href="register.php">Register</a>
+        <a class="register-message" href="register.php">Register</a>
         <br>
-        <a class="forgotPWMessage" href="forgot-password.php">Forgot Password</a>
+        <a class="forgotPW-message" href="forgot-password.php">Forgot Password</a>
         </div>
     </div>
 <?php
     include("resources/chatbox.php");
-    include("resources/footer.php");
 ?>
+    </body>
+</html>
