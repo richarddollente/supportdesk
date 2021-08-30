@@ -25,7 +25,7 @@ class UserProfile{
         $tabsSection = $this->createTabsSection();
         $contentSection = $this->createContentSection();
 
-        return "<div class='profileContaner'>
+        return "<div class='profile-contaner'>
                     $headerSection
                     $tabsSection
                     $contentSection
@@ -39,15 +39,15 @@ class UserProfile{
         
         $button = $this->createHeaderButton();
 
-        return "<div class='userProfileHeader>
-                    <div class='userDataContainer'>
-                        <div class='userData'>
-                            <span class='userTitle'>$userFullName</span>
+        return "<div class='user-profile-header'>
+                    <div class='userdata-container'>
+                        <div class='userdata'>
+                            <span class='usertitle'>$userFullName</span>
                         </div>
                     </div>
                 
-                    <div class='buttonContainer'>
-                        <div class='buttonItem'>
+                    <div class='button-container'>
+                        <div class='button-item'>
                             $button
                         </div>
                     </div>
