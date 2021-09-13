@@ -13,8 +13,4 @@
 
     $userprofile = new UserProfile($connection, $userLoggedInObject, $userEmailProfile);
     echo $userprofile->create();
-
-    include("resources/chatbox.php");
-    require_once("resources/footer.php");
-
 ?>

@@ -19,7 +19,7 @@ class NavMenuAction{
         
         }
 
-        return "<div class='navigationItems'>
+        return "<div class='navigation-items'>
                     $menuHTML
                 </div>";
 
@@ -27,7 +27,7 @@ class NavMenuAction{
 
     private function createNavItem($text,$link){
 
-        return "<div class='navigationItem'>
+        return "<div class='navigation-item'>
                     <a href='$link'>
                         <span>$text</span>
                     </a>

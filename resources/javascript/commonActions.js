@@ -1,11 +1,11 @@
 $(document).ready(function(){
 
-    $("nav-show-hide").on("click", function() {
+    $(".nav-show-hide").on("click", function() {
 
         var mainSection = $("#main-section-container");
-        var navigation = $("side-nav-container");
+        var navigation = $("#side-nav-container");
     
-        if(mainSection.hasClass("left-padding")){
+        if(mainSection.hasClass("left-padding")) {
             navigation.hide();
         }
         else{
@@ -14,9 +14,9 @@ $(document).ready(function(){
         
         mainSection.toggleClass("left-padding");
     
-        });
-    
     });
+    
+});
 
 function notLoggedIn(){
 
